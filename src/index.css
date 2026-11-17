@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@layer base {
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+    /* Crisp Study Paper & Deep Botanical Teal Focus Palette */
+    --bg-canvas: #F6F8F7;
+    --bg-surface: #FFFFFF;
+    --bg-subtle: #EDF2F0;
+    --bg-muted: #E2E9E6;
+    --border-hairline: #DCE3E0;
+    --border-strong: #C2CEC9;
+
+    --text-primary: #0F1C18;
+    --text-secondary: #334740;
+    --text-muted: #5E736B;
+
+    --accent-primary: #0F766E;
+    --accent-hover: #0B5C56;
+    --accent-warm: #1D4ED8;
+    --accent-amber: #B45309;
+    --accent-sage: #15803D;
+    --accent-crimson: #B91C1C;
+    --accent-cyan: #0E7490;
+  }
+
+  .dark {
+    /* Midnight Library Slate & Calm Mint-Teal Palette */
+    --bg-canvas: #0B1215;
+    --bg-surface: #111C21;
+    --bg-subtle: #18262C;
+    --bg-muted: #21333B;
+    --border-hairline: #23353D;
+    --border-strong: #354E59;
+
+    --text-primary: #EDF4F2;
+    --text-secondary: #C5D5D0;
+    --text-muted: #8CA19B;
+
+    --accent-primary: #2DD4BF;
+    --accent-hover: #5EEAD4;
+    --accent-warm: #60A5FA;
+    --accent-amber: #FBBF24;
+    --accent-sage: #4ADE80;
+    --accent-crimson: #F87171;
+    --accent-cyan: #22D3EE;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    margin: 0;
+    min-height: 100vh;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+/* Subtle editorial scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* 3D Flip Card Helpers */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.transform-style-3d {
+  transform-style: preserve-3d;
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Animated SVG Signal Flow along diagram edges */
+@keyframes flowDash {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+
+.diagram-flow-line {
+  stroke-dasharray: 6 6;
+  animation: flowDash 1.1s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .transform-style-3d {
+    transition: none;
+  }
+  .diagram-flow-line {
+    animation: none;
+  }
+}

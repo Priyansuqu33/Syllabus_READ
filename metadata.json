@@ -1,0 +1,6 @@
+{
+  "name": "CS35302 Web Technology Studio",
+  "description": "Interactive syllabus, editorial study notes, live code sandboxes, and visual protocol simulations for CS35302 Web Technology.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
